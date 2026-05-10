@@ -1,14 +1,15 @@
-
 import React, { useEffect, useState } from "react";
 
 function App() {
   const [task, setTask] = useState("");
   const [todos, setTodos] = useState([]);
 
+  const BASE_URL = "https://todo-app-jiu4.onrender.com";
+
   // Get Todos
   const getTodos = async () => {
     try {
-      const response = await fetch("http://localhost:5000/get");
+      const response = await fetch(`${BASE_URL}/get`);
       const data = await response.json();
       setTodos(data);
     } catch (error) {
@@ -26,7 +27,7 @@ function App() {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/add", {
+      const res = await fetch(`${BASE_URL}/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -50,7 +51,7 @@ function App() {
   // Clear All Todos
   const clearTodos = async () => {
     try {
-      const res = await fetch("http://localhost:5000/clear", {
+      const res = await fetch(`${BASE_URL}/clear`, {
         method: "DELETE",
       });
 
@@ -87,13 +88,7 @@ function App() {
           boxShadow: "0px 0px 20px rgba(0,0,0,0.3)",
         }}
       >
-        <h1
-          style={{
-            textAlign: "center",
-            marginBottom: "25px",
-            color: "#243b55",
-          }}
-        >
+        <h1 style={{ textAlign: "center", marginBottom: "25px", color: "#243b55" }}>
           Todo App
         </h1>
 
