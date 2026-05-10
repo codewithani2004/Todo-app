@@ -11,9 +11,11 @@ function App() {
     try {
       const response = await fetch(`${BASE_URL}/get`);
       const data = await response.json();
-      setTodos(data);
+
+      setTodos(Array.isArray(data) ? data : []);
     } catch (error) {
       console.log(error);
+      setTodos([]);
     }
   };
 
@@ -127,22 +129,23 @@ function App() {
 
         {/* Todo List */}
         <div style={{ marginTop: "25px" }}>
-          {todos.map((todo) => (
-            <div
-              key={todo._id}
-              style={{
-                backgroundColor: "#f1f5f9",
-                padding: "15px",
-                marginBottom: "12px",
-                borderRadius: "10px",
-                fontSize: "17px",
-                color: "#243b55",
-                fontWeight: "bold",
-              }}
-            >
-              {todo.task}
-            </div>
-          ))}
+          {Array.isArray(todos) &&
+            todos.map((todo) => (
+              <div
+                key={todo._id}
+                style={{
+                  backgroundColor: "#f1f5f9",
+                  padding: "15px",
+                  marginBottom: "12px",
+                  borderRadius: "10px",
+                  fontSize: "17px",
+                  color: "#243b55",
+                  fontWeight: "bold",
+                }}
+              >
+                {todo.task}
+              </div>
+            ))}
         </div>
 
         {/* Clear Button */}
