@@ -27,7 +27,7 @@ A beautiful, fast, and responsive Todo App for managing daily tasks easily 🚀
 
 ## 🌐 Live Demo
 
-👉 [Check out the live app on Netlify](https://taskotodo.netlify.app)
+👉 [Check out the live app on Netlify]: (https://taskotodo.netlify.app)
 
 
 
