@@ -4,7 +4,7 @@
 
 
 
-<h2 align="center">✅ Smart Todo Task Manager</h2>
+<h2 align="center">💻 Smart Todo Task Manager</h2>
 
 <p align="center">
 A beautiful, fast, and responsive Todo App for managing daily tasks easily 🚀
